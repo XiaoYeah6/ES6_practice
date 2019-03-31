@@ -7,6 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        let p1 = new Promise(function(resolve, reject){
+            console.log('发送请求1');
+            // resolve();
+            reject();
+        }).then(function(){
+            setTimeout(function(){
+                console.log('请求1发送成功');
+            },1000)
+        }).catch(function(){
+            setTimeout(function(){
+                console.log('请求1发送失败');
+            }, 1000);
+            
+        })
+    </script>
 </body>
 </html>
