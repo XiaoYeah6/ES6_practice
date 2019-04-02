@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function * fn(){
+            console.log("开始");
+            yield way1;
+        }
+        let f = fn();
+        f.next();
+
+        function way1(){
+            console.log("请求1中...");
+            setTimeout(function(){
+                console.log("请求1完成");
+            },1000)
+        }
+    </script>
+</body>
+</html>
