@@ -10,16 +10,34 @@
     <script>
         function * fn(){
             console.log("开始");
-            yield way1;
+            yield way1();
+            yield wait();
+            yield way2();
+            console.log("完成");
         }
         let f = fn();
         f.next();
 
         function way1(){
-            console.log("请求1中...");
-            setTimeout(function(){
-                console.log("请求1完成");
+            console.log("开始请求1");
+            setTimeout(() => {
+                console.log("请求1完成,准备请求2");
             },1000)
+        }
+
+        function wait(){
+            setTimeout(function(){
+                console.log("开始请求2");
+            },1000)
+            f.next();
+        }
+
+        function way2(){
+            console.log("请求2中...");
+            setTimeout(function(){
+                console.log("请求2完成");
+            },1000)
+            f.next();
         }
     </script>
 </body>
